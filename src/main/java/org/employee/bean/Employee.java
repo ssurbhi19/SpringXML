@@ -1,7 +1,5 @@
 package org.employee.bean;
 
-import org.employee.bean.Department;
-
 import java.util.List;
 
 public class Employee
@@ -11,8 +9,8 @@ public class Employee
     private Integer age;
     private Double salary;
     private List<String> tasklist;
-    public void Employee() {}
 
+    //Getters and Setters
     public List<String> getTasklist() {
         return tasklist;
     }
@@ -33,22 +31,26 @@ public class Employee
         this.age = age;
     }
 
+    //Dependency injection through Setter.
     public void setDepartment(Department department)
     {
-        System.out.println("Creating the object of Department class");
         this.department= department;
     }
 
-    public void init(){
-        System.out.println(getClass()+" INIT");
+    //Will call this method in xml file using init-method
+    public void init()
+    {
+        System.out.println(getClass()+" init()");
     }
+
+    //Will call this method in xml file using destroy-method
     public void destroy() {
-        System.out.println(getClass()+" DESTROY");
+        System.out.println(getClass()+" destroy()");
     }
 
     public void printEmployee()
     {
-        System.out.println(name+" "+age+" "+salary+" "+tasklist);
+        System.out.println("Name:"+name+" Age:"+age+" Salary:"+salary+" TaskList:"+tasklist);
     }
 
     public void printDepartment()

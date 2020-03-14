@@ -11,7 +11,7 @@
     <property name="locations" value="application.properties" ></property>
     </bean>
 
-    <bean id="employee" class="org.example.Employee" init-method="init" destroy-method="destroy">
+    <bean id="employee" class="org.employee.bean.Employee" init-method="init" destroy-method="destroy" scope="prototype">
         <property name="name"><value>${name}</value></property>
         <property name="age"> <value>${age}</value></property>
         <property name="salary"> <value>${salary}</value></property>

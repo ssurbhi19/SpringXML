@@ -1,8 +1,11 @@
 package org.employee.bean;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
 import java.util.Date;
 
-public class Department
+public class Department implements InitializingBean, DisposableBean
 {
     private String deptName;
     private Date date;
@@ -25,9 +28,17 @@ public class Department
 
     public void print()
     {
-        System.out.println("Inside Department class");
-        System.out.println(this.deptName);
-        System.out.println(this.date);
+        System.out.println("Department name:"+this.deptName+" Date:"+this.date);
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println(getClass()+" destroy()");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println(getClass()+" init()");
     }
 
 }
